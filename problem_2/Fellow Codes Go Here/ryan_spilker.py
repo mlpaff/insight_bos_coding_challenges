@@ -19,8 +19,6 @@ def depth_helper(node):
     depth_right = depth_helper(node.right) if node.right else 0
     return max(depth_left, depth_right) + 1
 
-	return 0
-
 #PLEASE DO NOT CHANGE THIS
 def find_max_depth(tree):
 	depth = depth_helper(tree)
