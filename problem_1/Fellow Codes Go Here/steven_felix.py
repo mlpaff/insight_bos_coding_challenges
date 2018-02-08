@@ -23,8 +23,41 @@ class ListNode:
         self.next = None
 
 def oddEvenList_Helper(head):
-   # YOUR CODE HERE
-   return
+    current = head
+    
+    # save head of the list of evens
+    evens_head = head.next
+    
+    counter = 1
+    
+    # until you reach the last node
+    while current.next is not None:
+        nxt = current.next
+        
+        if nxt.next is not None:
+            # change the next node to the next-next node
+            current.next = nxt.next
+
+        # When you get to second to last node (ie nxt.next is None:)
+        else:        
+            # if current node is even, then it will be the tail
+            if counter % 2 == 0:
+                # so change next to None
+                current.next = None # or = nxt.next
+                # and change the last node to head of evens
+                nxt.next = evens_head
+                break
+            
+            # if current node is odd, it should join to head of evens
+            if counter % 2 == 1:
+                current.next = evens_head
+
+        # traverse to next node
+        current = nxt
+        
+        counter += 1
+        
+    return head
 
 
 #DO NOT CHANGE THIS FUNCTION

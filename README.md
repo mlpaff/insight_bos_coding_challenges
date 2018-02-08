@@ -1,4 +1,4 @@
-Welcome to the LeetCode challenge, I will release 3 coding challenges per week for next three weeks. Please spend no more than 1 hour per question. 
+Welcome to the LeetCode and Data Challenge exercises. We will release 3 coding challenges and 1 data challenge per week for next three weeks. Please spend no more than 1 hour per Leetcode question and 4 hours for data challenge problem. 
 
 Downloading the Github repo:
 
@@ -10,7 +10,7 @@ For the first time ONLY, please follow these steps:
 Moving forward, you only need to run `$ git pull` to get most up-to-date files
 
 
-Submitting your solution to repo:
+Submitting your LeetCode solutions to repo:
 
 1. `$ cd problem_*)` #you will see the question written in Python format. For example, cd problem_1, the question file is named linked_list.py
 
@@ -18,5 +18,10 @@ Submitting your solution to repo:
 
 3. Remeber to commit your code when you are done. 
 
+Submitting your data challenge solutions to repo:
 
-Have fun coding~~
+1. Code and annotate your analysis in a Jupyter notebook
+
+2. Save it to the `dc_go_here` folder, with the naming convention "First_Last_DataChallenge1.ipynb".  For example, mine is ivan_zheng_DataChallenge1.ipynb
+
+Have fun!

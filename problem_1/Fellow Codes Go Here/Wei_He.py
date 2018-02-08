@@ -23,8 +23,24 @@ class ListNode:
         self.next = None
 
 def oddEvenList_Helper(head):
-   # YOUR CODE HERE
-   return
+    # YOUR CODE HERE
+	if not head:
+		return None
+	
+	dummy_odd, dummy_even = ListNode(0), ListNode(0)
+	even = head.next
+	dummy_odd.next = head
+	dummy_even.next = even
+	
+	while head.next and even.next:
+		head.next = head.next.next
+		even.next = even.next.next
+		head = head.next
+		even = even.next
+		
+	head.next = dummy_even.next
+	
+	return dummy_odd.next
 
 
 #DO NOT CHANGE THIS FUNCTION

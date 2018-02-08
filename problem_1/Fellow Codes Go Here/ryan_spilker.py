@@ -2,8 +2,7 @@
 """
 Odd Even Linked List
 
-Given a singly linked list, group all odd nodes together followed by the even nodes. 
-Please note here we are talking about the node number and not the value in the nodes.
+Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
 
 You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
 
@@ -12,7 +11,7 @@ Given 1->2->3->4->5->NULL,
 return 1->3->5->2->4->NULL.
 
 Note:
-The relative order inside both the even and odd groups should remain as it was in the input. 
+The relative order inside both the even and odd groups should remain as it was in the input.
 The first node is considered odd, the second node even and so on ...
 """
 
@@ -23,8 +22,23 @@ class ListNode:
         self.next = None
 
 def oddEvenList_Helper(head):
-   # YOUR CODE HERE
-   return
+    #YOUR CODE GOES HERE
+
+    head_even = None
+    current_odd = head
+    if head.next:
+        head_even = head.next
+        current_even = head_even
+        while current_even.next:
+            current_odd.next = current_even.next
+            current_odd = current_odd.next
+            if current_odd.next:
+                current_even.next = current_odd.next
+                current_even = current_even.next
+            else:
+                current_even.next = None
+    current_odd.next = head_even
+    return head
 
 
 #DO NOT CHANGE THIS FUNCTION
