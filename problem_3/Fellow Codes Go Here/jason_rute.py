@@ -17,13 +17,35 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 """
 
 def is_substring_helper (data):
-	#YOUR CODE GOES HERE
+    """
+    Takes in a string data and tests if there is a proper substring ss such that 
+    data = ss * n for some n.
 
-	return False
+    parameters
+    ----------
+        data: the string
+
+    returns
+    -------
+        a bool indicating if data is a multiple of a proper substring
+    """
+
+    substring_candidate = data[0] # start with initial character (prevents div by zero issues)
+
+    for i, c in enumerate(data):
+        if c != substring_candidate[i % len(substring_candidate)]: #candidate is no longer valid
+            substring_candidate = data[:i+1] # replace candidate with current substring 
+
+    # check that candidate is not just the whole string
+    # check that candidate evenly divides the length of the string
+    if substring_candidate == data or len(data) % len(substring_candidate): 
+        return False
+    else:
+        return True
 
 #DON NOT CHANGE THIS FUNCTION
 def is_substring (string_input):
-	return is_substring_helper(string_input)
+    return is_substring_helper(string_input)
 
 
 #test case
