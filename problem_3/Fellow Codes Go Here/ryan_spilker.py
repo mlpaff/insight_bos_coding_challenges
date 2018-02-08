@@ -19,7 +19,14 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 def is_substring_helper (data):
 	#YOUR CODE GOES HERE
 
-	return False
+    len_substring = 1
+    is_repeated = False
+    while ~is_repeated & len_substring < len(data) / 2 + 1:
+        if ~(len(data) % len_substring):
+            if data[:len_substring] * (len(data) // len_substring) == data:
+                is_repeated = True
+        len_substring += 1
+    return is_repeated
 
 #DON NOT CHANGE THIS FUNCTION
 def is_substring (string_input):
