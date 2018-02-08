@@ -14,7 +14,11 @@ class Node:
 
 def depth_helper(node):
 	#YOUR CODE GOES HERE
-	
+
+    depth_left = depth_helper(node.left) if node.left else 0
+    depth_right = depth_helper(node.right) if node.right else 0
+    return max(depth_left, depth_right) + 1
+
 	return 0
 
 #PLEASE DO NOT CHANGE THIS
