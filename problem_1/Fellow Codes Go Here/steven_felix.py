@@ -34,9 +34,12 @@ def oddEvenList_Helper(head):
     while current.next is not None:
         nxt = current.next
         
-        # if at second to last node
-        if nxt.next is None:
-            
+        if nxt.next is not None:
+            # change the next node to the next-next node
+            current.next = nxt.next
+
+        # When you get to second to last node (ie nxt.next is None:)
+        else:        
             # if current node is even, then it will be the tail
             if counter % 2 == 0:
                 # so change next to None
@@ -48,11 +51,7 @@ def oddEvenList_Helper(head):
             # if current node is odd, it should join to head of evens
             if counter % 2 == 1:
                 current.next = evens_head
-        
-        # other wise you are at last node or middle node
-        else:
-            current.next = nxt.next
-        
+
         # traverse to next node
         current = nxt
         
