@@ -24,7 +24,21 @@ class ListNode:
 def oddEvenList_Helper(head):
     #YOUR CODE GOES HERE
 
-    return None
+    head_even = None
+    current_odd = head
+    if head.next:
+        head_even = head.next
+        current_even = head_even
+        while current_even.next:
+            current_odd.next = current_even.next
+            current_odd = current_odd.next
+            if current_odd.next:
+                current_even.next = current_odd.next
+                current_even = current_even.next
+            else:
+                current_even.next = None
+    current_odd.next = head_even
+    return head
 
 
 #DO NOT CHANGE THIS FUNCTION
