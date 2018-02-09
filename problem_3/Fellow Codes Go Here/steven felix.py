@@ -18,7 +18,31 @@ Explanation: It's the substring "abc" four times. (And the substring "abcabc" tw
 """
 
 def is_substring_helper (data):
-    # YOUR CODE HERE
+    print('original string: {}'.format(data))
+    
+    # max substr length is half of the length of the string
+    max_sub_str_len = int(len(data)/2)
+    
+    for window in range(1, max_sub_str_len+1):
+        
+        # if the string length is not a multiple of the window, move on
+        if len(data)%window != 0:
+            continue
+        
+        # get letters in window
+        substr = data[0:window]
+        
+        # get number of multiples of window needed to create data
+        multiples = int(len(data)/window)
+        
+        # create the substring
+        new_str = ''.join([substr for i in range(multiples)])
+
+        # see if it is the same as data
+        if new_str == data:
+            return True
+    
+    # if no matches, return False
     return False
 
 #DON NOT CHANGE THIS FUNCTION
